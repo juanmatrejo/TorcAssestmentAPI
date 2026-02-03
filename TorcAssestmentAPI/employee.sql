@@ -1,0 +1,18 @@
+CREATE DATABASE torc;
+GO
+
+USE torc;
+GO
+
+CREATE TABLE Employee
+(
+    Id INT IDENTITY(1,1) NOT NULL,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    Position VARCHAR(50) NOT NULL,
+    Salary DECIMAL(10 ,2) NOT NULL,
+    HireDate DATETIME NOT NULL,
+
+    CONSTRAINT PK_Employee PRIMARY KEY (Id)
+);
+GO

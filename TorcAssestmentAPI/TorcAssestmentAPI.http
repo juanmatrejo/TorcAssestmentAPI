@@ -1,0 +1,6 @@
+@TorcAssestmentAPI_HostAddress = http://localhost:8080
+
+GET {{TorcAssestmentAPI_HostAddress}}/
+Accept: application/json
+
+###

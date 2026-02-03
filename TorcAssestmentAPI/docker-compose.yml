@@ -1,0 +1,29 @@
+﻿services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "G@ld3rJackson#9001"
+    ports:
+      - "1433:1433"
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: torcassestmentapi:dev
+    depends_on:
+        - sqlserver
+    ports:
+        - "8080:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__Default: >
+        Server=sqlserver;
+        Database=torc;
+        User Id=sa;
+        Password=G@ld3rJackson#9001;
+        Encrypt=true;
+        TrustServerCertificate=True;
