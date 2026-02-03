@@ -6,6 +6,7 @@ using TorcAssestmentAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add services to the container.
 builder.Services.AddDbContext<DbTorcContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), sql => sql.EnableRetryOnFailure(5)));
 
@@ -19,6 +20,7 @@ builder.Services.AddControllers()
         fv.RegisterValidatorsFromAssemblyContaining<EmployeeDtoValidator>();
     });
 
+// Dependency Injection for Repositories and Services
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 

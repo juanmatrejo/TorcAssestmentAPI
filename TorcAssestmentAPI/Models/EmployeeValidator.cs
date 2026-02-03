@@ -4,6 +4,8 @@ namespace TorcAssestmentAPI.Models
 {
     public class EmployeeDtoValidator : AbstractValidator<EmployeeDto>
     {
+
+        // Constructor to define validation rules
         public EmployeeDtoValidator()
         {
             RuleFor(x => x.FirstName)

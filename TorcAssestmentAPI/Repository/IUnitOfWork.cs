@@ -6,5 +6,6 @@ namespace TorcAssestmentAPI.Repository
     {
         IRepository<Employee> Employees { get; }
         int Commit();
+        void Dispose();
     }
 }
